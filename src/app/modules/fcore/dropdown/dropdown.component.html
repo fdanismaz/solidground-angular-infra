@@ -1,0 +1,6 @@
+<div id="{{id}}" ngbDropdown class="d-inline-block dropdown">
+  <button class="btn btn-{{buttonCssClass}} dropdown-toggle" ngbDropdownToggle>{{label}}</button>
+  <div ngbDropdownMenu>
+    <f-dropdown-item *ngFor="let item of items" [item]="item" (click)="dropdownItemSelected(item)" ></f-dropdown-item>
+  </div>
+</div>

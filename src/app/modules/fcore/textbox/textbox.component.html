@@ -1,0 +1,6 @@
+<div class="form-group">
+  <label class="col-form-label" id="{{name}}" for="{{name}}">{{label}}</label>
+  <input id="{{id}}" name="{{name}}"
+         placeholder="{{placeholder}}" type="{{getTypeValue()}}" class="form-control"
+         (change)="textChanged($event)" value="{{text}}">
+</div>

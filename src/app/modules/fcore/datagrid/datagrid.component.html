@@ -1,0 +1,14 @@
+<div id="{{id}}" class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th *ngFor="let header of metadata.getHeaders()">{{header.getText()}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data">
+        <td *ngFor="let cell of row.getCells()" class="{{cell.getCssClass()}}">{{cell.getValue()}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
