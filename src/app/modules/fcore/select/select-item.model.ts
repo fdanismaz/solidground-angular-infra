@@ -1,22 +1,26 @@
 export class SelectItem {
 
-  selected: boolean = false;
+  private _selected: boolean = false;
 
-  constructor(private label: string, private value: string, private disabled: boolean) {}
+  constructor(private _label: string, private _value: string, private _disabled: boolean) {}
 
-  getValue(): string {
-    return this.value;
+  get selected(): boolean {
+    return this._selected;
   }
 
-  getLabel(): string {
-    return this.label;
+  get label(): string {
+    return this._label;
   }
 
-  isDisabled() : boolean {
-    return this.disabled;
+  get value(): string {
+    return this._value;
   }
 
-  setDisabled(value: boolean) : void {
-    this.disabled = value;
+  get disabled(): boolean {
+    return this._disabled;
+  }
+
+  set selected(value: boolean) {
+    this._selected = value;
   }
 }

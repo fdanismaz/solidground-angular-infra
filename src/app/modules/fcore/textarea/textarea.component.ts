@@ -38,8 +38,4 @@ export class TextAreaComponent implements OnInit {
     this.onTextChanged.emit(event.target.value);
   }
 
-  getText() : string {
-    return this.text;
-  }
-
 }

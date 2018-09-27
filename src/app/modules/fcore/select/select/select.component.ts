@@ -46,7 +46,7 @@ export class SelectComponent implements OnInit {
 
     // find the selected item first
     const newValue = event.target.value;
-    let selectedOption = this.options.find(x => x.getValue() === newValue);
+    let selectedOption = this.options.find(x => x.value === newValue);
 
     // set all options' selected property to false
     this.options.forEach(x => x.selected = false);

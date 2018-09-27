@@ -1,4 +1,4 @@
-import {AfterContentInit, AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
 import {DataGridComponent} from './modules/fcore/datagrid/datagrid.component';
 import {GridRow} from './modules/fcore/datagrid/grid-row.model';
 import {GridMetaData} from './modules/fcore/datagrid/grid-metadata.model';
@@ -12,6 +12,8 @@ import {RadioGroupComponent} from './modules/fcore/select/radiogroup/radiogroup.
 import {CheckGroupComponent} from './modules/fcore/select/checkgroup/checkgroup.component';
 import {TextBoxType} from './modules/fcore/textbox/textbox-type.enum';
 import {SelectComponent} from './modules/fcore/select/select/select.component';
+import {ListViewComponent} from './modules/fcore/listview/listview.component';
+import {ListViewItem} from './modules/fcore/listview/listview-item.model';
 
 @Component({
   selector: 'app-root',
@@ -37,6 +39,9 @@ export class AppComponent implements OnInit, AfterContentInit {
   @ViewChild(SelectComponent)
   testSelect: SelectComponent;
 
+  @ViewChild(ListViewComponent)
+  testList: ListViewComponent;
+
   // This is needed to be able to use the enum in HTML template
   TextBoxType: typeof TextBoxType = TextBoxType;
 
@@ -52,7 +57,7 @@ export class AppComponent implements OnInit, AfterContentInit {
     metadata.addHeader(new GridHeader("surname", "Surname"));
     metadata.addHeader(new GridHeader("birthdate", "Date of Birth"));
 
-    this.testTable.setMetadata(metadata);
+    this.testTable.metadata = metadata;
   }
 
   ngAfterContentInit(): void {
@@ -69,7 +74,7 @@ export class AppComponent implements OnInit, AfterContentInit {
       new GridCell("birthdate", "05/02/1989", "text-danger")
     ]));
 
-    this.testTable.setData(data);
+    this.testTable.data = data;
 
     var options = new Array<DropDownItem>();
     options.push(new DropDownItem(DropDownItemType.Header, 'Settings', ''));
@@ -78,8 +83,7 @@ export class AppComponent implements OnInit, AfterContentInit {
     options.push(new DropDownItem(DropDownItemType.Default, 'Something else', "#"));
     options.push(new DropDownItem(DropDownItemType.Separator, '', ''));
     options.push(new DropDownItem(DropDownItemType.Default, 'Separated link', '#'));
-
-    this.testDropdown.setItems(options);
+    this.testDropdown.items = options;
 
     var selectOptions = new Array<SelectItem>();
     selectOptions.push(new SelectItem('Student', 'student', false));
@@ -89,10 +93,16 @@ export class AppComponent implements OnInit, AfterContentInit {
     this.testRadioGroup.setOptions(selectOptions);
     this.testCheckGroup.setOptions(selectOptions);
     this.testSelect.setOptions(selectOptions);
+
+    var listViewItems = new Array<ListViewItem>();
+    listViewItems.push(new ListViewItem("1", 'Programming', 'Questions about programming', false, '', '3 daysa ago', 'Donec id elit non mi porta.'));
+    listViewItems.push(new ListViewItem("2", 'Management', 'Questions about leading people', true));
+
+    this.testList.items = listViewItems;
   }
 
   onDropdownItemSelected(item: DropDownItem) {
-    console.log(item.getLabel());
+    console.log(item.label);
   }
 
   onMyButtonClicked() {
@@ -100,7 +110,7 @@ export class AppComponent implements OnInit, AfterContentInit {
   }
 
   onRadioEducationSelectedChanged(item: SelectItem) {
-    console.log(item.getValue());
+    console.log(item.value);
   }
 
   onCheckEducationSelectedChanged(item: SelectItem) {
@@ -113,5 +123,9 @@ export class AppComponent implements OnInit, AfterContentInit {
 
   onTextAreaTextChanged(value: string) {
     console.log(value);
+  }
+
+  onSelectedItemChanged(item: ListViewItem) {
+    console.log(item);
   }
 }

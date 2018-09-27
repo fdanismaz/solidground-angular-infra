@@ -1,12 +1,12 @@
 export class GridHeader {
 
-  constructor(private id: string, private text) {}
+  constructor(private _id: string, private _text) {}
 
-  getId() : string {
-    return this.id;
+  get id(): string {
+    return this._id;
   }
 
-  getText() : string {
-    return this.text;
+  get text() {
+    return this._text;
   }
 }

@@ -1,8 +1,8 @@
 <div class="form-group">
-  <label for="{{name}}" class="form-control-label"></label>
+  <label for="{{name}}" class="form-control-label">{{label}}</label>
   <select id="{{name}}" name="{{name}}" class="form-control" (change)="onSelectionChanged($event)">
-    <option *ngFor="let option of options" value="{{option.getValue()}}">
-      {{option.getLabel()}}
+    <option *ngFor="let option of options" value="{{option.value}}" [disabled]="option.disabled">
+      {{option.label}}
     </option>
   </select>
 </div>

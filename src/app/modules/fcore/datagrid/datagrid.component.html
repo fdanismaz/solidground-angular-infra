@@ -2,12 +2,12 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th *ngFor="let header of metadata.getHeaders()">{{header.getText()}}</th>
+        <th *ngFor="let header of metadata.headers">{{header.text}}</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let row of data">
-        <td *ngFor="let cell of row.getCells()" class="{{cell.getCssClass()}}">{{cell.getValue()}}</td>
+        <td *ngFor="let cell of row.cells" class="{{cell.cssClass}}">{{cell.value}}</td>
       </tr>
     </tbody>
   </table>

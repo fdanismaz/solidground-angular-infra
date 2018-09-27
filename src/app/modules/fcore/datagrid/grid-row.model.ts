@@ -2,13 +2,13 @@ import {GridCell} from './grid-cell.model';
 
 export class GridRow {
 
-  constructor(private cells: GridCell[]) {}
+  constructor(private _cells: GridCell[]) {}
 
-  getCells() : GridCell[] {
-    return this.cells;
+  get cells(): GridCell[] {
+    return this._cells;
   }
 
   addCell(cell: GridCell) {
-    this.cells.push(cell);
+    this._cells.push(cell);
   }
 }

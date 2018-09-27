@@ -3,10 +3,10 @@
   <div class="col-12" *ngIf="!inline; else inlineStyle">
     <div class="form-check" *ngFor="let option of options">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="{{name}}" [value]="option.getValue()"
+        <input type="radio" class="form-check-input" name="{{name}}" [value]="option.value"
                [(ngModel)]="selectedOption"
                (change)="onSelectionChanged(option)"
-               [disabled]="option.isDisabled()">{{option.getLabel()}}
+               [disabled]="option.disabled">{{option.label}}
       </label>
     </div>
   </div>
@@ -16,9 +16,9 @@
   <div class="col-12">
     <div class="form-check-inline" *ngFor="let option of options">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="{{name}}" value="{{option.getValue()}}"
+        <input type="radio" class="form-check-input" name="{{name}}" value="{{option.value}}"
                (change)="onSelectionChanged(option)"
-               [disabled]="option.isDisabled()">{{option.getLabel()}}
+               [disabled]="option.disabled">{{option.label}}
       </label>
     </div>
   </div>

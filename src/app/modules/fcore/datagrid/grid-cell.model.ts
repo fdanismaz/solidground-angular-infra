@@ -1,16 +1,16 @@
 export class GridCell {
 
-  constructor(private id: string, private value: any, private cssClass: string) {}
+  constructor(private _id: string, private _value: any, private _cssClass: string) {}
 
-  getId() : string {
-    return this.id;
+  get id(): string {
+    return this._id;
   }
 
-  getValue() : any {
-    return this.value;
+  get value(): any {
+    return this._value;
   }
 
-  getCssClass() : string {
-    return this.cssClass;
+  get cssClass(): string {
+    return this._cssClass;
   }
 }

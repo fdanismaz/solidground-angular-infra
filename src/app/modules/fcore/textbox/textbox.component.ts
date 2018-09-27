@@ -39,11 +39,7 @@ export class TextBoxComponent implements OnInit {
     this.onTextChanged.emit(event.target.value);
   }
 
-  getText() : string {
-    return this.text;
-  }
-
-  getTypeValue() : string {
+  get textBoxType() : string {
     switch (this.type) {
       case TextBoxType.Text: return "text";
       case TextBoxType.Password: return "password";

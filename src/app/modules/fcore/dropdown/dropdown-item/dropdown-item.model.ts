@@ -2,19 +2,19 @@ import {DropDownItemType} from './dropdown-item-type.enum';
 
 export class DropDownItem {
 
-  constructor(private type: DropDownItemType,
-              private label: string,
-              private link: string) {};
+  constructor(private _type: DropDownItemType,
+              private _label: string,
+              private _link: string) {};
 
-  getType() : DropDownItemType {
-    return this.type;
+  get type(): DropDownItemType {
+    return this._type;
   }
 
-  getLabel() : string {
-    return this.label;
+  get label(): string {
+    return this._label;
   }
 
-  getLink() : string {
-    return this.link;
+  get link(): string {
+    return this._link;
   }
 }

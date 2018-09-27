@@ -25,12 +25,12 @@ export class ButtonComponent implements OnInit {
   @Output()
   onClick = new EventEmitter();
 
-  enabled: boolean;
+  disabled: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this.enabled = true;
+    this.disabled = false;
     this.buttonType = 'button';
   }
 
@@ -38,8 +38,12 @@ export class ButtonComponent implements OnInit {
     this.onClick.emit();
   }
 
-  enable(value: boolean) {
-    this.enabled = value;
+  enable() {
+    this.disabled = false;
+  }
+
+  disable() {
+    this.disabled = true;
   }
 
 }

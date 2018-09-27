@@ -1,0 +1,29 @@
+<div [id]="id" *ngIf="detailed; else default" class="list-group">
+  <!--<f-detailed-listview-item *ngFor="let item of items" [item]="item" (onItemSelected)="onItemSelected(item)"></f-detailed-listview-item>-->
+
+  <div *ngFor="let item of items"
+       class="list-group-item list-group-item-action flex-column align-items-start {{item.activeCssClass}} {{item.disabledCssClass}}"
+       (click)="onItemClicked(item)">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{item.title}}</h5>
+      <small>{{item.notification}}</small>
+    </div>
+    <p class="mb-1">{{item.text}}</p>
+    <small>{{item.note}}</small>
+  </div>
+
+</div>
+
+<ng-template #default>
+  <div [id]="id" class="list-group">
+    <!--<f-listview-item *ngFor="let item of items" [item]="item" (onItemSelected)="onItemSelected(item)"></f-listview-item>-->
+
+    <button *ngFor="let item of items"
+            type="button"
+            class="list-group-item list-group-item-action {{item.activeCssClass}} {{item.disabledCssClass}}"
+            (click)="onItemClicked(item)">
+      {{item.text}}
+    </button>
+  </div>
+</ng-template>
+

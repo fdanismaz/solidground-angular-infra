@@ -3,9 +3,9 @@
   <div class="col-12" *ngIf="!inline; else inlineStyle">
     <div class="form-check" *ngFor="let option of options">
       <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" name="{{name}}" value="{{option.getValue()}}"
+        <input type="checkbox" class="form-check-input" name="{{name}}" value="{{option.value}}"
                (change)="onSelectionChanged(option)" [(ngModel)]="option.selected"
-               [disabled]="option.isDisabled()">{{option.getLabel()}}
+               [disabled]="option.disabled">{{option.label}}
       </label>
     </div>
   </div>
@@ -15,9 +15,9 @@
   <div class="col-12">
     <div class="form-check-inline" *ngFor="let option of options">
       <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" name="{{name}}" value="{{option.getValue()}}"
+        <input type="checkbox" class="form-check-input" name="{{name}}" value="{{option.value}}"
                (change)="onSelectionChanged(option)" [(ngModel)]="option.selected"
-               [disabled]="option.isDisabled()">{{option.getLabel()}}
+               [disabled]="option.disabled">{{option.label}}
       </label>
     </div>
   </div>

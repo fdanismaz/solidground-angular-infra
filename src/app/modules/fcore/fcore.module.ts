@@ -13,6 +13,7 @@ import { CheckGroupComponent } from './select/checkgroup/checkgroup.component';
 import { TextAreaComponent } from './textarea/textarea.component';
 import { RatingComponent } from './rating/rating.component';
 import { SelectComponent } from './select/select/select.component';
+import { ListViewComponent } from './listview/listview.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { SelectComponent } from './select/select/select.component';
     CheckGroupComponent,
     TextAreaComponent,
     RatingComponent,
-    SelectComponent
+    SelectComponent,
+    ListViewComponent
   ],
   exports: [
     TextBoxComponent,
@@ -42,7 +44,8 @@ import { SelectComponent } from './select/select/select.component';
     CheckGroupComponent,
     TextAreaComponent,
     RatingComponent,
-    SelectComponent
+    SelectComponent,
+    ListViewComponent
   ]
 })
 export class FCoreModule { }

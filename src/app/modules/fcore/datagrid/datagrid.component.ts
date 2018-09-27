@@ -12,8 +12,8 @@ export class DataGridComponent implements OnInit {
   @Input()
   id: string;
 
-  metadata: GridMetaData = new GridMetaData();
-  data : GridRow[] = [];
+  private _metadata: GridMetaData = new GridMetaData();
+  private _data : GridRow[] = [];
 
   @Output()
   onSelectedChanged = new EventEmitter<object>();
@@ -23,11 +23,19 @@ export class DataGridComponent implements OnInit {
   ngOnInit() {
   }
 
-  setMetadata(metadata: GridMetaData) {
-    this.metadata = metadata;
+  get metadata(): GridMetaData {
+    return this._metadata;
   }
 
-  setData(data: GridRow[]) {
-    this.data = data;
+  get data(): GridRow[] {
+    return this._data;
+  }
+
+  set metadata(value: GridMetaData) {
+    this._metadata = value;
+  }
+
+  set data(value: GridRow[]) {
+    this._data = value;
   }
 }

@@ -2,14 +2,14 @@ import {GridHeader} from './grid-header.model';
 
 export class GridMetaData {
 
-  headers: GridHeader[] = [];
+  private _headers: GridHeader[] = [];
 
-  getHeaders() : GridHeader[] {
-    return this.headers;
+  get headers(): GridHeader[] {
+    return this._headers;
   }
 
   addHeader(header: GridHeader) : void {
-    this.headers.push(header);
+    this._headers.push(header);
   }
 
 }

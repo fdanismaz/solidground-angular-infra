@@ -20,23 +20,27 @@ export class DropDownComponent implements OnInit {
   @Output()
   onDropdownItemSelected = new EventEmitter<DropDownItem>();
 
-  items: DropDownItem[] = [];
+  private _items: DropDownItem[] = [];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  setItems(items: DropDownItem[]) : void {
-    this.items = items;
+  get items(): DropDownItem[] {
+    return this._items;
+  }
+
+  set items(value: DropDownItem[]) {
+    this._items = value;
   }
 
   addItem(item: DropDownItem) : void {
-    this.items.push(item);
+    this._items.push(item);
   }
 
   clearItems(): void {
-    this.items = [];
+    this._items = [];
   }
 
   dropdownItemSelected(item) {
