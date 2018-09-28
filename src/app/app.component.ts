@@ -8,6 +8,7 @@ import {DropDownItemType} from './modules/fcore/dropdown/dropdown-item/dropdown-
 import {SelectItem} from './modules/fcore/select/select-item.model';
 import {TextBoxType} from './modules/fcore/textbox/textbox-type.enum';
 import {ListViewItem} from './modules/fcore/listview/listview-item.model';
+import {ModalManager} from './modules/fcore/modal/modal.manager';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,8 @@ export class AppComponent implements OnInit, AfterContentInit {
   tableData: GridRow[] = [];
   dropdownItems: DropDownItem[] = [];
   selectOptions: SelectItem[] = [];
+  infoModalManager: ModalManager;
+  confirmModalManager: ModalManager;
 
   // This is needed to be able to use the enum in HTML template
   TextBoxType: typeof TextBoxType = TextBoxType;
@@ -38,6 +41,8 @@ export class AppComponent implements OnInit, AfterContentInit {
     metadata.addHeader(new GridHeader("birthdate", "Date of Birth"));
 
     this.tableMetadata = metadata;
+    this.infoModalManager = new ModalManager();
+    this.confirmModalManager = new ModalManager();
   }
 
   ngAfterContentInit(): void {
@@ -111,5 +116,41 @@ export class AppComponent implements OnInit, AfterContentInit {
 
   onCheckChanged(value: boolean) {
     console.log("check changed: " + value);
+  }
+
+  openInfoLarge() {
+    this.infoModalManager.openLarge();
+  }
+
+  openInfoSmall() {
+    this.infoModalManager.openSmall();
+  }
+
+  openInfo() {
+    this.infoModalManager.open();
+  }
+
+  openConfirmLarge() {
+    this.confirmModalManager.openLarge();
+  }
+
+  openConfirmSmall() {
+    this.confirmModalManager.openSmall();
+  }
+
+  openConfirm() {
+    this.confirmModalManager.open();
+  }
+
+  infoModalConfirmed() {
+    console.log("info modal confirmed");
+  }
+
+  confirmModalConfirmed() {
+    console.log('confirm modal confirmed');
+  }
+
+  confirmModalCancelled() {
+    console.log('confirm modal cancelled');
   }
 }

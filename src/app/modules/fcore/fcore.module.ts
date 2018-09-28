@@ -16,6 +16,8 @@ import { SelectComponent } from './select/select/select.component';
 import { ListViewComponent } from './listview/listview.component';
 import { CheckBoxComponent } from './checkbox/checkbox.component';
 import { CrudButtonsComponent } from './crudbuttons/crudbuttons.component';
+import { ConfirmModalComponent } from './modal/confirm-modal/confirm-modal.component';
+import { InfoModalComponent } from './modal/info-modal/info-modal.component';
 
 @NgModule({
   imports: [
@@ -37,7 +39,9 @@ import { CrudButtonsComponent } from './crudbuttons/crudbuttons.component';
     SelectComponent,
     ListViewComponent,
     CheckBoxComponent,
-    CrudButtonsComponent
+    CrudButtonsComponent,
+    ConfirmModalComponent,
+    InfoModalComponent
   ],
   exports: [
     TextBoxComponent,
@@ -51,7 +55,9 @@ import { CrudButtonsComponent } from './crudbuttons/crudbuttons.component';
     SelectComponent,
     ListViewComponent,
     CrudButtonsComponent,
-    CheckBoxComponent
+    CheckBoxComponent,
+    ConfirmModalComponent,
+    InfoModalComponent
   ]
 })
 export class FCoreModule { }
