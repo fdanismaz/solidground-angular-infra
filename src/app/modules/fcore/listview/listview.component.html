@@ -1,23 +1,51 @@
-<div [id]="id" *ngIf="detailed; else default" class="list-group">
-  <!--<f-detailed-listview-item *ngFor="let item of items" [item]="item" (onItemSelected)="onItemSelected(item)"></f-detailed-listview-item>-->
+<div class="card">
+  <div class="card-body">
 
-  <div *ngFor="let item of items"
-       class="list-group-item list-group-item-action flex-column align-items-start {{item.activeCssClass}} {{item.disabledCssClass}}"
-       (click)="itemClicked(item)">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{item.title}}</h5>
-      <small>{{item.notification}}</small>
+    <div class="row">
+      <div class="col-12">
+        <div class="card-title">
+          <div class="float-left" style="padding-top: 10px;">
+            <h4>{{label}}</h4>
+          </div>
+          <div class="float-right">
+            <f-crudbuttons [tooltipPosition]="tooltipPosition"
+                           [tooltipNewText]="tooltipNewText" [tooltipUpdateText]="tooltipUpdateText"
+                           [tooltipDeleteText]="tooltipDeleteText" [buttonNewVisible]="buttonNewVisible"
+                           [buttonUpdateVisible]="buttonUpdateVisible" [buttonDeleteVisible]="buttonDeleteVisible"
+                           (onNewButtonClicked)="newButtonClicked()" (onUpdateButtonClicked)="updateButtonClicked()"
+                           (onDeleteButtonClicked)="deleteButtonClicked()"
+            ></f-crudbuttons>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="mb-1">{{item.text}}</p>
-    <small>{{item.note}}</small>
-  </div>
 
+    <div class="row">
+      <div class="col-12">
+        <!-- List View -->
+        <div [id]="id" *ngIf="detailed; else default" class="list-group">
+          <div *ngFor="let item of items"
+               class="list-group-item list-group-item-action flex-column align-items-start {{item.activeCssClass}} {{item.disabledCssClass}}"
+               (click)="itemClicked(item)">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{item.title}}</h5>
+              <small>{{item.notification}}</small>
+            </div>
+            <p class="mb-1">{{item.text}}</p>
+            <small>{{item.note}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
+
+
+
 
 <ng-template #default>
   <div [id]="id" class="list-group">
-    <!--<f-listview-item *ngFor="let item of items" [item]="item" (onItemSelected)="onItemSelected(item)"></f-listview-item>-->
-
     <button *ngFor="let item of items"
             type="button"
             class="list-group-item list-group-item-action {{item.activeCssClass}} {{item.disabledCssClass}}"

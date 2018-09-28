@@ -23,7 +23,6 @@
 
 <f-textarea [id]="'desc'" [label]="'Description'" (onTextChanged)="onTextAreaTextChanged($event)" ></f-textarea>
 
-<f-listview [id]="'lstTopics'" [detailed]="false" [items]="listItems" (onSelectedItemChanged)="onSelectedItemChanged($event)"></f-listview>
 
 <div class="row">
   <div class="col-12">
@@ -34,6 +33,10 @@
                    (onDeleteButtonClicked)="onDeleteButtonClicked()"></f-crudbuttons>
   </div>
 </div>
+
+<f-listview [id]="'lstTopics'" [detailed]="false" [items]="listItems" [label]="'Domain Management'"
+            [tooltipDeleteText]="'De-Activate'"
+            (onSelectedItemChanged)="onSelectedItemChanged($event)"></f-listview>
 
 
 <div class="row">

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ListViewItem} from './listview-item.model';
+import {TooltipPosition} from '../shared/tooltip-position.model';
 
 @Component({
   selector: 'f-listview',
@@ -15,7 +16,40 @@ export class ListViewComponent implements OnInit {
   id: string;
 
   @Input()
+  label: string;
+
+  @Input()
   detailed: boolean = false;
+
+  @Input()
+  tooltipPosition: TooltipPosition;
+
+  @Input()
+  tooltipNewText: string;
+
+  @Input()
+  tooltipUpdateText: string;
+
+  @Input()
+  tooltipDeleteText: string;
+
+  @Input()
+  buttonNewVisible: boolean = true;
+
+  @Input()
+  buttonUpdateVisible: boolean = true;
+
+  @Input()
+  buttonDeleteVisible: boolean = true;
+
+  @Output()
+  onNewButtonClicked = new EventEmitter();
+
+  @Output()
+  onUpdateButtonClicked = new EventEmitter();
+
+  @Output()
+  onDeleteButtonClicked = new EventEmitter();
 
   @Output()
   onSelectedItemChanged = new EventEmitter<ListViewItem>();
@@ -43,6 +77,18 @@ export class ListViewComponent implements OnInit {
       item.active = true;
       this.onSelectedItemChanged.emit(item);
     }
+  }
+
+  newButtonClicked() : void {
+    this.onNewButtonClicked.emit();
+  }
+
+  updateButtonClicked() : void {
+    this.onUpdateButtonClicked.emit();
+  }
+
+  deleteButtonClicked() : void {
+    this.onDeleteButtonClicked.emit();
   }
 
 }
