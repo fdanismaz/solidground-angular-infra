@@ -31,7 +31,6 @@ export * from './src/app/modules/fcore/shared/tooltip-position.model';
 
 export * from './src/app/modules/fcore/checkbox/checkbox.component';
 
-export * from './src/app/modules/fcore/modal/modal.manager';
 export * from './src/app/modules/fcore/modal/info-modal/info-modal.component';
 export * from './src/app/modules/fcore/modal/confirm-modal/confirm-modal.component';
 

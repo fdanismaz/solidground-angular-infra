@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, OnInit} from '@angular/core';
+import {AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
 import {GridRow} from './modules/fcore/datagrid/grid-row.model';
 import {GridMetaData} from './modules/fcore/datagrid/grid-metadata.model';
 import {GridHeader} from './modules/fcore/datagrid/grid-header.model';
@@ -8,7 +8,8 @@ import {DropDownItemType} from './modules/fcore/dropdown/dropdown-item/dropdown-
 import {SelectItem} from './modules/fcore/select/select-item.model';
 import {TextBoxType} from './modules/fcore/textbox/textbox-type.enum';
 import {ListViewItem} from './modules/fcore/listview/listview-item.model';
-import {ModalManager} from './modules/fcore/modal/modal.manager';
+import {InfoModalComponent} from './modules/fcore/modal/info-modal/info-modal.component';
+import {ConfirmModalComponent} from './modules/fcore/modal/confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -22,11 +23,15 @@ export class AppComponent implements OnInit, AfterContentInit {
   tableData: GridRow[] = [];
   dropdownItems: DropDownItem[] = [];
   selectOptions: SelectItem[] = [];
-  infoModalManager: ModalManager;
-  confirmModalManager: ModalManager;
 
   // This is needed to be able to use the enum in HTML template
   TextBoxType: typeof TextBoxType = TextBoxType;
+
+  @ViewChild('infoModal')
+  infoModal: InfoModalComponent;
+
+  @ViewChild('confirmModal')
+  confirmModal: ConfirmModalComponent;
 
   onTextChanged(value: string) {
     console.log("new value is: " + value);
@@ -41,8 +46,6 @@ export class AppComponent implements OnInit, AfterContentInit {
     metadata.addHeader(new GridHeader("birthdate", "Date of Birth"));
 
     this.tableMetadata = metadata;
-    this.infoModalManager = new ModalManager();
-    this.confirmModalManager = new ModalManager();
   }
 
   ngAfterContentInit(): void {
@@ -119,27 +122,30 @@ export class AppComponent implements OnInit, AfterContentInit {
   }
 
   openInfoLarge() {
-    this.infoModalManager.openLarge();
+    this.infoModal.open('Info Modal Title', 'Info Modal Message', 'lg', 'Confirm', this.infoModalConfirmed);
   }
 
   openInfoSmall() {
-    this.infoModalManager.openSmall();
+    this.infoModal.open('Info Modal Title', 'Info Modal Message', 'sm', 'Confirm', this.infoModalConfirmed);
   }
 
   openInfo() {
-    this.infoModalManager.open();
+    this.infoModal.open('Info Modal Title', 'Info Modal Message', null, 'Confirm', this.infoModalConfirmed);
   }
 
   openConfirmLarge() {
-    this.confirmModalManager.openLarge();
+    this.confirmModal.open('Confirm Modal Title', 'Confirm Message Text', 'lg', 'OK', 'Cancel',
+      this.confirmModalConfirmed, this.confirmModalCancelled);
   }
 
   openConfirmSmall() {
-    this.confirmModalManager.openSmall();
+    this.confirmModal.open('Confirm Modal Title', 'Confirm Message Text', 'sm', 'OK', 'Cancel',
+      this.confirmModalConfirmed, this.confirmModalCancelled);
   }
 
   openConfirm() {
-    this.confirmModalManager.open();
+    this.confirmModal.open('Confirm Modal Title', 'Confirm Message Text', null, 'OK', 'Cancel',
+      this.confirmModalConfirmed, this.confirmModalCancelled);
   }
 
   infoModalConfirmed() {

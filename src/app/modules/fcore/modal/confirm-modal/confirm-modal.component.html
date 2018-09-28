@@ -1,7 +1,7 @@
 <ng-template #content>
   <div class="modal-header">
     <h4 class="modal-title">{{title}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="cancel()">
+    <button type="button" class="close" aria-label="Close" (click)="close(false)">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -9,7 +9,7 @@
     <p>{{message}}</p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-primary" (click)="confirm()">{{confirmText}}</button>
-    <button type="button" class="btn btn-outline-danger" (click)="cancel()">{{cancelText}}</button>
+    <button type="button" class="btn btn-outline-primary" (click)="close(true)">{{confirmText}}</button>
+    <button type="button" class="btn btn-outline-danger" (click)="close(false)">{{cancelText}}</button>
   </div>
 </ng-template>

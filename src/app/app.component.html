@@ -47,12 +47,9 @@
 </div>
 
 
-<f-info-modal [manager]="infoModalManager" [title]="'Modal Title'" [confirmText]="'Confirm'" [message]="'Info Modal message'"
-              (onModalConfirmed)="infoModalConfirmed()"></f-info-modal>
+<f-info-modal #infoModal></f-info-modal>
 
-<f-confirm-modal [manager]="confirmModalManager" [title]="'Confirm Title'" [confirmText]="'Confirm'"
-                 [cancelText]="'Cancel'" [message]="'Confirm modal message'"
-                 (onModalConfirmed)="confirmModalConfirmed()" (onModalCancelled)="confirmModalCancelled()"></f-confirm-modal>
+<f-confirm-modal #confirmModal></f-confirm-modal>
 
 <button class="btn btn-outline-primary mb-2 mr-2" (click)="openInfoLarge()">Large modal</button>
 <button class="btn btn-outline-primary mb-2 mr-2" (click)="openInfo()">Default modal</button>
