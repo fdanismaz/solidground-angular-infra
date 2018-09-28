@@ -8,6 +8,7 @@ import {ListViewItem} from './listview-item.model';
 })
 export class ListViewComponent implements OnInit {
 
+  @Input()
   items: ListViewItem[] = [];
 
   @Input()
@@ -36,13 +37,7 @@ export class ListViewComponent implements OnInit {
     this.items.push(item);
   }
 
-  // onItemSelected(item: ListViewItem) {
-  //   this.items.forEach(x => x.active = false);
-  //   item.active = true;
-  //   this.onSelectedItemChanged.emit(item);
-  // }
-
-  onItemClicked(item: ListViewItem) {
+  itemClicked(item: ListViewItem) {
     if (!item.disabled && !item.active) {
       this.items.forEach(x => x.active = false);
       item.active = true;

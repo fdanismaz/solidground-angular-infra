@@ -1,0 +1,7 @@
+<div class="form-group row" (click)="itemClicked()" style="padding-left: 20px">
+  <div class="col-12">
+    <input type="checkbox" class="form-check-input" name="{{name}}" [(ngModel)]="checked"
+           [disabled]="disabled">
+    <label class="col-form-label">{{label}}</label>
+  </div>
+</div>

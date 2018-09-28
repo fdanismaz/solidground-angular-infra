@@ -14,6 +14,8 @@ import { TextAreaComponent } from './textarea/textarea.component';
 import { RatingComponent } from './rating/rating.component';
 import { SelectComponent } from './select/select/select.component';
 import { ListViewComponent } from './listview/listview.component';
+import { CheckBoxComponent } from './checkbox/checkbox.component';
+import { CrudButtonsComponent } from './crudbuttons/crudbuttons.component';
 
 @NgModule({
   imports: [
@@ -33,7 +35,9 @@ import { ListViewComponent } from './listview/listview.component';
     TextAreaComponent,
     RatingComponent,
     SelectComponent,
-    ListViewComponent
+    ListViewComponent,
+    CheckBoxComponent,
+    CrudButtonsComponent
   ],
   exports: [
     TextBoxComponent,
@@ -45,7 +49,9 @@ import { ListViewComponent } from './listview/listview.component';
     TextAreaComponent,
     RatingComponent,
     SelectComponent,
-    ListViewComponent
+    ListViewComponent,
+    CrudButtonsComponent,
+    CheckBoxComponent
   ]
 })
 export class FCoreModule { }

@@ -4,7 +4,7 @@
     <div class="form-check" *ngFor="let option of options">
       <label class="form-check-label">
         <input type="checkbox" class="form-check-input" name="{{name}}" value="{{option.value}}"
-               (change)="onSelectionChanged(option)" [(ngModel)]="option.selected"
+               (change)="selectionChanged()" [(ngModel)]="option.selected"
                [disabled]="option.disabled">{{option.label}}
       </label>
     </div>
@@ -16,7 +16,7 @@
     <div class="form-check-inline" *ngFor="let option of options">
       <label class="form-check-label">
         <input type="checkbox" class="form-check-input" name="{{name}}" value="{{option.value}}"
-               (change)="onSelectionChanged(option)" [(ngModel)]="option.selected"
+               (change)="selectionChanged()" [(ngModel)]="option.selected"
                [disabled]="option.disabled">{{option.label}}
       </label>
     </div>

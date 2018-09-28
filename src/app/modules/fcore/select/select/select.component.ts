@@ -20,36 +20,41 @@ export class SelectComponent implements OnInit {
   @Output()
   onSelectedChanged = new EventEmitter<SelectItem>();
 
-  options: SelectItem[] = [];
+  private _options: SelectItem[] = [];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  setOptions(options: SelectItem[]): void {
-    this.options = options;
+  @Input()
+  set options(value: SelectItem[]) {
+    this._options = value;
+  }
+
+  get options(): SelectItem[] {
+    return this._options;
   }
 
   addOption(option: SelectItem): void {
-    this.options.push(option);
+    this._options.push(option);
   }
 
   clearOptions(): void {
-    this.options = [];
+    this._options = [];
   }
 
-  onSelectionChanged(event) {
+  selectionChanged(event) {
     // There is no 2 way binding here with ng-model,
     // therefore, we need to update the selected property of
     // each action on our own.
 
     // find the selected item first
     const newValue = event.target.value;
-    let selectedOption = this.options.find(x => x.value === newValue);
+    let selectedOption = this._options.find(x => x.value === newValue);
 
     // set all options' selected property to false
-    this.options.forEach(x => x.selected = false);
+    this._options.forEach(x => x.selected = false);
 
     // set the selected property of the selected item to true
     selectedOption.selected = true;
@@ -59,7 +64,7 @@ export class SelectComponent implements OnInit {
   }
 
   getSelectedItem() : SelectItem {
-    return this.options.find(x => x.selected);
+    return this._options.find(x => x.selected);
   }
 
 }

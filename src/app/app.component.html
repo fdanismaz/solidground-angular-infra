@@ -1,20 +1,46 @@
-<f-dropdown [id]="'education'" [label]="'Dropdown Label'" [buttonCssClass]="'outline-primary'" (onDropdownItemSelected)="onDropdownItemSelected($event)"></f-dropdown>
+<f-dropdown [id]="'education'" [label]="'Dropdown Label'" [buttonCssClass]="'outline-primary'"
+            [items]="dropdownItems" (onDropdownItemSelected)="onDropdownItemSelected($event)"></f-dropdown>
 
-<f-textbox [id]="'name'" [label]="'Name'" [name]="'name'" [text]="'furkan'" [type]="TextBoxType.Text" (onTextChanged)="onTextChanged($event)"></f-textbox>
-<f-textbox [id]="'pass'" [label]="'Password'" [name]="'pass'" [text]="'123456'" [type]="TextBoxType.Password" (onTextChanged)="onTextChanged($event)"></f-textbox>
-<f-textbox [id]="'email'" [label]="'Email'" [name]="'email'" [placeholder]="'Email'" [text]="''" [type]="TextBoxType.Email" (onTextChanged)="onTextChanged($event)"></f-textbox>
+<f-textbox [id]="'name'" [label]="'Name'" [name]="'name'" [text]="'furkan'" [type]="TextBoxType.Text"
+           (onTextChanged)="onTextChanged($event)"></f-textbox>
+<f-textbox [id]="'pass'" [label]="'Password'" [name]="'pass'" [text]="'123456'" [type]="TextBoxType.Password"
+           (onTextChanged)="onTextChanged($event)"></f-textbox>
+<f-textbox [id]="'email'" [label]="'Email'" [name]="'email'" [placeholder]="'Email'" [text]="''" [type]="TextBoxType.Email"
+           (onTextChanged)="onTextChanged($event)"></f-textbox>
 
-<f-datagrid></f-datagrid>
+<f-datagrid [metadata]="tableMetadata" [data]="tableData"></f-datagrid>
 
 <f-button [id]="'mybutton'" [label]="'click me!'" [cssClass]="'inverse-primary'" (onClick)="onMyButtonClicked()"></f-button>
 
-<f-radiogroup [id]="'rdbEducation'" [label]="'Education'" [inline]="false" [name]="'education'" (onSelectedChanged)="onRadioEducationSelectedChanged($event)"></f-radiogroup>
+<f-radiogroup [id]="'rdbEducation'" [label]="'Education'" [inline]="false" [name]="'education'"
+              [options]="selectOptions" (onSelectedChanged)="onRadioEducationSelectedChanged($event)"></f-radiogroup>
 
-<f-checkgroup [id]="'chkEducation'" [label]="'Education'" [inline]="false" [name]="'education'" (onSelectedChanged)="onCheckEducationSelectedChanged($event)"></f-checkgroup>
+<f-checkgroup [id]="'chkEducation'" [label]="'Education'" [inline]="false" [name]="'education'"
+              [options]="selectOptions" (onSelectedChanged)="onCheckEducationSelectedChanged($event)"></f-checkgroup>
 
-<f-select [id]="'slctEducation'" [label]="'Education'" [name]="'education'" (onSelectedChanged)="onSelectEducationSelectedChange($event)"></f-select>
+<f-select [id]="'slctEducation'" [label]="'Education'" [name]="'education'"
+          [options]="selectOptions" (onSelectedChanged)="onSelectEducationSelectedChange($event)"></f-select>
 
 <f-textarea [id]="'desc'" [label]="'Description'" (onTextChanged)="onTextAreaTextChanged($event)" ></f-textarea>
 
-<f-listview [id]="'lstTopics'" [detailed]="false" (onSelectedItemChanged)="onSelectedItemChanged($event)"></f-listview>
+<f-listview [id]="'lstTopics'" [detailed]="false" [items]="listItems" (onSelectedItemChanged)="onSelectedItemChanged($event)"></f-listview>
+
+<div class="row">
+  <div class="col-12">
+    <f-crudbuttons [buttonNewVisible]="true" [buttonUpdateVisible]="true" [buttonDeleteVisible]="true"
+                   [tooltipDeleteText]="'De-Activate'"
+                   (onNewButtonClicked)="onNewButtonClicked()"
+                   (onUpdateButtonClicked)="onUpdateButtonClicked()"
+                   (onDeleteButtonClicked)="onDeleteButtonClicked()"></f-crudbuttons>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-12">
+    <f-checkbox [id]="'chkTest'" [name]="'accept'" [label]="'Accept Terms'" [checked]="true" [disabled]="false"
+                (onCheckedChanged)="onCheckChanged($event)"></f-checkbox>
+  </div>
+</div>
+
 

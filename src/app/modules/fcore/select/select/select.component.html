@@ -1,6 +1,6 @@
 <div class="form-group">
   <label for="{{name}}" class="form-control-label">{{label}}</label>
-  <select id="{{name}}" name="{{name}}" class="form-control" (change)="onSelectionChanged($event)">
+  <select id="{{name}}" name="{{name}}" class="form-control" (change)="selectionChanged($event)">
     <option *ngFor="let option of options" value="{{option.value}}" [disabled]="option.disabled">
       {{option.label}}
     </option>

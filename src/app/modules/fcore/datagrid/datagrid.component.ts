@@ -31,10 +31,12 @@ export class DataGridComponent implements OnInit {
     return this._data;
   }
 
+  @Input()
   set metadata(value: GridMetaData) {
     this._metadata = value;
   }
 
+  @Input()
   set data(value: GridRow[]) {
     this._data = value;
   }

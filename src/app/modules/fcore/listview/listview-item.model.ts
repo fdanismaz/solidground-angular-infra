@@ -5,6 +5,7 @@ export class ListViewItem {
     private _title: string,
     private _text: string,
     private _disabled: boolean,
+    private _data?: object,
     private _icon?: string,
     private _notification?: string,
     private _note?: string,
@@ -29,6 +30,10 @@ export class ListViewItem {
 
   get disabled(): boolean {
     return this._disabled;
+  }
+
+  get data(): object {
+    return this._data;
   }
 
   get notification(): string {

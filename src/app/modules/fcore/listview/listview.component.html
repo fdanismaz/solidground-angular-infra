@@ -3,7 +3,7 @@
 
   <div *ngFor="let item of items"
        class="list-group-item list-group-item-action flex-column align-items-start {{item.activeCssClass}} {{item.disabledCssClass}}"
-       (click)="onItemClicked(item)">
+       (click)="itemClicked(item)">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{item.title}}</h5>
       <small>{{item.notification}}</small>
@@ -21,8 +21,8 @@
     <button *ngFor="let item of items"
             type="button"
             class="list-group-item list-group-item-action {{item.activeCssClass}} {{item.disabledCssClass}}"
-            (click)="onItemClicked(item)">
-      {{item.text}}
+            (click)="itemClicked(item)">
+      {{item.title}}
     </button>
   </div>
 </ng-template>

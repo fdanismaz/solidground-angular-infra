@@ -2,7 +2,11 @@ export class SelectItem {
 
   private _selected: boolean = false;
 
-  constructor(private _label: string, private _value: string, private _disabled: boolean) {}
+  constructor(
+    private _label: string,
+    private _value: string,
+    private _disabled: boolean,
+    private _data?: object) {}
 
   get selected(): boolean {
     return this._selected;
@@ -18,6 +22,10 @@ export class SelectItem {
 
   get disabled(): boolean {
     return this._disabled;
+  }
+
+  get data(): object {
+    return this._data;
   }
 
   set selected(value: boolean) {

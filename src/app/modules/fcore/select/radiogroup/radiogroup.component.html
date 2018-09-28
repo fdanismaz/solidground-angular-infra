@@ -5,7 +5,7 @@
       <label class="form-check-label">
         <input type="radio" class="form-check-input" name="{{name}}" [value]="option.value"
                [(ngModel)]="selectedOption"
-               (change)="onSelectionChanged(option)"
+               (change)="selectionChanged(option)"
                [disabled]="option.disabled">{{option.label}}
       </label>
     </div>
@@ -17,7 +17,7 @@
     <div class="form-check-inline" *ngFor="let option of options">
       <label class="form-check-label">
         <input type="radio" class="form-check-input" name="{{name}}" value="{{option.value}}"
-               (change)="onSelectionChanged(option)"
+               (change)="selectionChanged(option)"
                [disabled]="option.disabled">{{option.label}}
       </label>
     </div>

@@ -16,6 +16,7 @@ export * from './src/app/modules/fcore/dropdown/dropdown-item/dropdown-item.mode
 export * from './src/app/modules/fcore/dropdown/dropdown-item/dropdown-item-type.enum';
 
 export * from './src/app/modules/fcore/button/button.component';
+export * from './src/app/modules/fcore/crudbuttons/crudbuttons.component';
 
 export * from './src/app/modules/fcore/select/select-item.model';
 export * from './src/app/modules/fcore/select/radiogroup/radiogroup.component';
@@ -24,4 +25,11 @@ export * from './src/app/modules/fcore/select/select/select.component';
 
 export * from './src/app/modules/fcore/listview/listview-item.model';
 export * from './src/app/modules/fcore/listview/listview.component';
+
+export * from './src/app/modules/fcore/shared/tooltip.model';
+export * from './src/app/modules/fcore/shared/tooltip-position.model';
+
+export * from './src/app/modules/fcore/checkbox/checkbox.component';
+
+
 

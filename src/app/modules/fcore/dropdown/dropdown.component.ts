@@ -31,6 +31,7 @@ export class DropDownComponent implements OnInit {
     return this._items;
   }
 
+  @Input()
   set items(value: DropDownItem[]) {
     this._items = value;
   }

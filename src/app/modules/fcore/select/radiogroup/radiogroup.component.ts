@@ -23,7 +23,7 @@ export class RadioGroupComponent implements OnInit {
   @Output()
   onSelectedChanged = new EventEmitter<SelectItem>();
 
-  options: SelectItem[] = [];
+  private _options: SelectItem[] = [];
 
   selectedOption: SelectItem;
 
@@ -32,24 +32,25 @@ export class RadioGroupComponent implements OnInit {
   ngOnInit() {
   }
 
-  setOptions(options: SelectItem[]): void {
-    this.options = options;
-    this.selectedOption = options.find(x => x.selected);
+  @Input()
+  set options(value: SelectItem[]) {
+    this._options = value;
+  }
+
+  get options(): SelectItem[] {
+    return this._options;
   }
 
   addOption(option: SelectItem): void {
-    this.options.push(option);
+    this._options.push(option);
   }
 
   clearOptions(): void {
-    this.options = [];
-    this.selectedOption = null;
+    this._options = [];
   }
 
-  onSelectionChanged(item: SelectItem) {
+  selectionChanged(item: SelectItem) {
     this.onSelectedChanged.emit(item);
-    this.options.forEach(x => x.selected = false);
-    item.selected = true;
   }
 
   selectOption(value: string) {

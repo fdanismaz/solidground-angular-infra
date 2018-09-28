@@ -20,34 +20,47 @@ export class CheckGroupComponent implements OnInit {
   @Input()
   inline: boolean;
 
-  @Output()
-  onSelectedChanged = new EventEmitter<SelectItem>();
+  private _options: SelectItem[] = [];
 
-  options: SelectItem[] = [];
+  @Output()
+  onSelectedChanged = new EventEmitter<SelectItem[]>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  setOptions(options: SelectItem[]): void {
-    this.options = options;
+  @Input()
+  set options(value: SelectItem[]) {
+    this._options = value;
+  }
+
+  get options(): SelectItem[] {
+    return this._options;
   }
 
   addOption(option: SelectItem): void {
-    this.options.push(option);
+    this._options.push(option);
   }
 
   clearOptions(): void {
-    this.options = [];
+    this._options = [];
   }
 
-  onSelectionChanged(item: SelectItem) {
-    this.onSelectedChanged.emit(item);
+  selectionChanged() {
+    this.onSelectedChanged.emit(this.getSelectedItems());
+  }
+
+  selectOption(value: string) {
+    this.options.find(x => x.value === value).selected = true;
+  }
+
+  unSelectOption(value: string) {
+    this.options.find(x => x.value === value).selected = false;
   }
 
   getSelectedItems() : SelectItem[] {
-    return this.options
+    return this._options
       .filter(option => option.selected);
   }
 
