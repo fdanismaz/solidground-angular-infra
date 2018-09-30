@@ -10,6 +10,7 @@ import {TextBoxType} from './modules/fcore/textbox/textbox-type.enum';
 import {ListViewItem} from './modules/fcore/listview/listview-item.model';
 import {InfoModalComponent} from './modules/fcore/modal/info-modal/info-modal.component';
 import {ConfirmModalComponent} from './modules/fcore/modal/confirm-modal/confirm-modal.component';
+import {CustomModalComponent} from './modules/fcore/modal/custom-modal/custom-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,9 @@ export class AppComponent implements OnInit, AfterContentInit {
 
   @ViewChild('confirmModal')
   confirmModal: ConfirmModalComponent;
+
+  @ViewChild('customModal')
+  customModal: CustomModalComponent;
 
   onTextChanged(value: string) {
     console.log("new value is: " + value);
@@ -158,5 +162,19 @@ export class AppComponent implements OnInit, AfterContentInit {
 
   confirmModalCancelled() {
     console.log('confirm modal cancelled');
+  }
+
+  onCustomModalFirstButtonClicked() {
+    console.log('first button clicked');
+    this.customModal.close();
+  }
+
+  onCustomModalSecondButtonClicked() {
+    console.log('second button clicked')
+    this.customModal.close();
+  }
+
+  openCustomModal() {
+    this.customModal.open('Test Custom Modal');
   }
 }

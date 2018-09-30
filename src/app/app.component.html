@@ -58,3 +58,15 @@
 <button class="btn btn-outline-primary mb-2 mr-2" (click)="openConfirmLarge()">Large Confirm modal</button>
 <button class="btn btn-outline-primary mb-2 mr-2" (click)="openConfirm()">Default Confirm modal</button>
 <button class="btn btn-outline-primary mb-2 mr-2" (click)="openConfirmSmall()">Small Confirm modal</button>
+
+<f-custom-modal #customModal [size]="'sm'">
+  <p body>
+    Hello world!
+  </p>
+  <div footer class="modal-footer">
+    <button type="button" class="btn btn-outline-info" (click)="onCustomModalFirstButtonClicked()">First Button</button>
+    <button type="button" class="btn btn-outline-warning" (click)="onCustomModalSecondButtonClicked()">Second Button</button>
+  </div>
+</f-custom-modal>
+
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openCustomModal()">Custom modal</button>
