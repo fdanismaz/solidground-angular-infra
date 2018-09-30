@@ -48,7 +48,7 @@ export class CheckGroupComponent implements OnInit {
   }
 
   selectionChanged() {
-    this.onSelectedChanged.emit(this.getSelectedItems());
+    this.onSelectedChanged.emit(this.selectedItems);
   }
 
   selectOption(value: string) {
@@ -59,7 +59,7 @@ export class CheckGroupComponent implements OnInit {
     this.options.find(x => x.value === value).selected = false;
   }
 
-  getSelectedItems() : SelectItem[] {
+  get selectedItems() : SelectItem[] {
     return this._options
       .filter(option => option.selected);
   }

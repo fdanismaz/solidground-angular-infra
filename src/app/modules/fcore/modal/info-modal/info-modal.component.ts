@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -12,29 +12,30 @@ export class InfoModalComponent implements OnInit {
   private _message: string;
   private _confirmText: string;
   private _modalReference: NgbModalRef;
-  private _confirmCallback: () => any;
 
   @ViewChild('content')
   content: ElementRef;
+
+  @Output()
+  onModalClosed = new EventEmitter<boolean>();
 
   constructor(private _modalService: NgbModal) { }
 
   ngOnInit() {
   }
 
-  open(title: string, message: string, size?: string, confirmText?: string, confirmCallback?: () => any) {
+  open(title: string, message: string, size?: string, confirmText?: string) {
     let options : object = size == null ? {} : { size: size };
     this._title = title;
     this._message = message;
     this._confirmText = confirmText;
-    this._confirmCallback = confirmCallback;
     this._modalReference = this._modalService.open(this.content, options);
   }
 
   close(confirmed: boolean) {
     if (confirmed) {
       // Only if the modal is closed via the confirm button
-      this._confirmCallback();
+      this.onModalClosed.emit(true);
     }
     this._modalReference.close();
   }

@@ -91,4 +91,8 @@ export class ListViewComponent implements OnInit {
     this.onDeleteButtonClicked.emit();
   }
 
+  get selectedItem(): ListViewItem {
+    return this.items.find(x => x.active);
+  }
+
 }

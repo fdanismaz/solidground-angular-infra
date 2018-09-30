@@ -57,7 +57,7 @@ export class RadioGroupComponent implements OnInit {
     this.selectedOption = this.options.find(x => x.value === value);
   }
 
-  getSelectedItem() : SelectItem {
+  get selectedItem() : SelectItem {
     return this.options.find(x => x.selected);
   }
 

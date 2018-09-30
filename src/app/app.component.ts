@@ -134,42 +134,27 @@ export class AppComponent implements OnInit, AfterContentInit {
   }
 
   openInfoLarge() {
-    this.infoModal.open('Info Modal Title', 'Info Modal Message', 'lg', 'Confirm', this.infoModalConfirmed);
+    this.infoModal.open('Info Modal Title', 'Info Modal Message', 'lg', 'Confirm');
   }
 
   openInfoSmall() {
-    this.infoModal.open('Info Modal Title', 'Info Modal Message', 'sm', 'Confirm', this.infoModalConfirmed);
+    this.infoModal.open('Info Modal Title', 'Info Modal Message', 'sm', 'Confirm');
   }
 
   openInfo() {
-    this.infoModal.open('Info Modal Title', 'Info Modal Message', null, 'Confirm', this.infoModalConfirmed);
+    this.infoModal.open('Info Modal Title', 'Info Modal Message', null, 'Confirm');
   }
 
   openConfirmLarge() {
-    this.confirmModal.open('Confirm Modal Title', 'Confirm Message Text', 'lg', 'OK', 'Cancel',
-      this.confirmModalConfirmed, this.confirmModalCancelled);
+    this.confirmModal.open('Confirm Modal Title', 'Confirm Message Text', 'lg', 'OK', 'Cancel');
   }
 
   openConfirmSmall() {
-    this.confirmModal.open('Confirm Modal Title', 'Confirm Message Text', 'sm', 'OK', 'Cancel',
-      this.confirmModalConfirmed, this.confirmModalCancelled);
+    this.confirmModal.open('Confirm Modal Title', 'Confirm Message Text', 'sm', 'OK', 'Cancel');
   }
 
   openConfirm() {
-    this.confirmModal.open('Confirm Modal Title', 'Confirm Message Text', null, 'OK', 'Cancel',
-      this.confirmModalConfirmed, this.confirmModalCancelled);
-  }
-
-  infoModalConfirmed() {
-    console.log("info modal confirmed");
-  }
-
-  confirmModalConfirmed() {
-    console.log('confirm modal confirmed');
-  }
-
-  confirmModalCancelled() {
-    console.log('confirm modal cancelled');
+    this.confirmModal.open('Confirm Modal Title', 'Confirm Message Text', null, 'OK', 'Cancel');
   }
 
   onCustomModalFirstButtonClicked() {
