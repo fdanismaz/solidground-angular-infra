@@ -1,12 +1,35 @@
 <f-dropdown [id]="'education'" [label]="'Dropdown Label'" [buttonCssClass]="'outline-primary'"
             [items]="dropdownItems" (onDropdownItemSelected)="onDropdownItemSelected($event)"></f-dropdown>
 
-<f-textbox [id]="'name'" [label]="'Name'" [name]="'name'" [text]="'furkan'" [type]="TextBoxType.Text"
+<f-textbox #txtName [id]="'name'" [label]="'Name'" [name]="'name'" [text]="'furkan'" [type]="TextBoxType.Text"
            (onTextChanged)="onTextChanged($event)"></f-textbox>
 <f-textbox [id]="'pass'" [label]="'Password'" [name]="'pass'" [text]="'123456'" [type]="TextBoxType.Password"
            (onTextChanged)="onTextChanged($event)"></f-textbox>
 <f-textbox [id]="'email'" [label]="'Email'" [name]="'email'" [placeholder]="'Email'" [text]="''" [type]="TextBoxType.Email"
            (onTextChanged)="onTextChanged($event)"></f-textbox>
+
+<f-textarea #txtDescr [id]="'desc'" [label]="'Description'" (onTextChanged)="onTextAreaTextChanged($event)" ></f-textarea>
+
+<button class="btn btn-primary mb-2 mr-2" (click)="onClearTextsClicked()">Clear Texts</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onShowErrorClicked()">Show Error</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onShowWarningClicked()">Show Warning</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onClearErrorClicked()">Clear Error</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onClearWarningClicked()">Clear Warning</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onClearClicked()">Clear</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onReadonyToggleClicked()">Readonly Toggle</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onDisableClicked()">Disable Toggle</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onHideToggleClicked()">Hidden Toggle</button>
+
+<br/>
+
+<button class="btn btn-primary mb-2 mr-2" (click)="onShowErrorAreaClicked()">Show Error on Area</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onShowWarningAreaClicked()">Show Warning on Area</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onClearErrorAreaClicked()">Clear Error on Area</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onClearWarningAreaClicked()">Clear Warning on Area</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onClearAreaClicked()">Clear Area</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onReadonyToggleAreaClicked()">Readonly Toggle Area</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onDisableAreaClicked()">Disable Toggle Area</button>
+<button class="btn btn-primary mb-2 mr-2" (click)="onHideToggleAreaClicked()">Hidden Area Toggle</button>
 
 <f-datagrid [metadata]="tableMetadata" [data]="tableData"></f-datagrid>
 
@@ -21,7 +44,6 @@
 <f-select [id]="'slctEducation'" [label]="'Education'" [name]="'education'"
           [options]="selectOptions" (onSelectedChanged)="onSelectEducationSelectedChange($event)"></f-select>
 
-<f-textarea [id]="'desc'" [label]="'Description'" (onTextChanged)="onTextAreaTextChanged($event)" ></f-textarea>
 
 
 <div class="row">

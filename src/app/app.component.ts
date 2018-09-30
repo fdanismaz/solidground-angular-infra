@@ -11,6 +11,8 @@ import {ListViewItem} from './modules/fcore/listview/listview-item.model';
 import {InfoModalComponent} from './modules/fcore/modal/info-modal/info-modal.component';
 import {ConfirmModalComponent} from './modules/fcore/modal/confirm-modal/confirm-modal.component';
 import {CustomModalComponent} from './modules/fcore/modal/custom-modal/custom-modal.component';
+import {TextBoxComponent} from './modules/fcore/textbox/textbox.component';
+import {TextAreaComponent} from './modules/fcore/textarea/textarea.component';
 
 @Component({
   selector: 'app-root',
@@ -36,6 +38,12 @@ export class AppComponent implements OnInit, AfterContentInit {
 
   @ViewChild('customModal')
   customModal: CustomModalComponent;
+
+  @ViewChild('txtName')
+  textName: TextBoxComponent;
+
+  @ViewChild('txtDescr')
+  textDescr: TextAreaComponent;
 
   onTextChanged(value: string) {
     console.log("new value is: " + value);
@@ -176,5 +184,74 @@ export class AppComponent implements OnInit, AfterContentInit {
 
   openCustomModal() {
     this.customModal.open('Test Custom Modal');
+  }
+
+  onClearTextsClicked() {
+    this.textName.clear();
+    this.textDescr.clear();
+  }
+
+  onShowErrorClicked() {
+    this.textName.showError('Can\'t leave this field empty!')
+  }
+
+  onShowWarningClicked() {
+    this.textName.showWarning('This is a warning instead');
+  }
+
+  onClearWarningClicked() {
+    this.textName.clearWarning();
+  }
+
+  onClearErrorClicked() {
+    this.textName.clearError();
+  }
+
+  onClearClicked() {
+    this.textName.clear();
+  }
+
+  onReadonyToggleClicked() {
+    this.textName.readonly = !this.textName.readonly;
+  }
+
+  onDisableClicked() {
+    this.textName.disabled = !this.textName.disabled;
+  }
+
+  onHideToggleClicked() {
+    this.textName.hidden = !this.textName.hidden;
+  }
+
+  onShowErrorAreaClicked() {
+    this.textDescr.showError('Text Area Error message');
+  }
+
+  onShowWarningAreaClicked() {
+    this.textDescr.showWarning('Text Area Warning message');
+  }
+
+  onClearErrorAreaClicked() {
+    this.textDescr.clearError();
+  }
+
+  onClearWarningAreaClicked() {
+    this.textDescr.clearWarning();
+  }
+
+  onClearAreaClicked() {
+    this.textDescr.clear();
+  }
+
+  onReadonyToggleAreaClicked() {
+    this.textDescr.readonly = !this.textDescr.readonly;
+  }
+
+  onDisableAreaClicked() {
+    this.textDescr.disabled = !this.textDescr.disabled;
+  }
+
+  onHideToggleAreaClicked() {
+    this.textDescr.hidden = !this.textDescr.hidden;
   }
 }

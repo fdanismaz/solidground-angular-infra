@@ -1,6 +1,8 @@
-<div class="form-group">
+<div class="form-group {{errorCssClass}}" [hidden]="hidden">
   <label class="col-form-label" id="{{name}}" for="{{name}}">{{label}}</label>
-  <input id="{{id}}" name="{{name}}"
+  <input id="{{id}}" name="{{name}}" [readonly]="readonly" [disabled]="disabled"
          placeholder="{{placeholder}}" type="{{textBoxType}}" class="form-control"
          (change)="textChanged($event)" value="{{text}}">
+  <small *ngIf="hasError" class="form-text text-danger">{{errorMessage}}</small>
+  <small *ngIf="hasWarning" class="form-text text-warning">{{warningMessage}}</small>
 </div>

@@ -1,7 +1,9 @@
-<div class="form-group">
+<div class="form-group {{errorCssClass}}" [hidden]="hidden">
   <label class="col-form-label" id="{{name}}" for="{{name}}">{{label}}</label>
-  <textarea id="{{id}}" name="{{name}}" rows="{{rows}}"
+  <textarea id="{{id}}" name="{{name}}" rows="{{rows}}" [readonly]="readonly" [disabled]="disabled"
          placeholder="{{placeholder}}" class="form-control"
          (change)="textChanged($event)" value="{{text}}">
   </textarea>
+  <small *ngIf="hasError" class="form-text text-danger">{{errorMessage}}</small>
+  <small *ngIf="hasWarning" class="form-text text-warning">{{warningMessage}}</small>
 </div>
