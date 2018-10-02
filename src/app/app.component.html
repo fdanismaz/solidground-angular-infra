@@ -2,13 +2,14 @@
             [items]="dropdownItems" (onDropdownItemSelected)="onDropdownItemSelected($event)"></f-dropdown>
 
 <f-textbox #txtName [id]="'name'" [label]="'Name'" [name]="'name'" [text]="'furkan'" [type]="TextBoxType.Text"
-           (onTextChanged)="onTextChanged($event)"></f-textbox>
+           (onTextChanged)="onTextChanged($event)" [info]="'This is a sample info'" ></f-textbox>
 <f-textbox [id]="'pass'" [label]="'Password'" [name]="'pass'" [text]="'123456'" [type]="TextBoxType.Password"
            (onTextChanged)="onTextChanged($event)"></f-textbox>
 <f-textbox [id]="'email'" [label]="'Email'" [name]="'email'" [placeholder]="'Email'" [text]="''" [type]="TextBoxType.Email"
            (onTextChanged)="onTextChanged($event)"></f-textbox>
 
-<f-textarea #txtDescr [id]="'desc'" [label]="'Description'" (onTextChanged)="onTextAreaTextChanged($event)" ></f-textarea>
+<f-textarea #txtDescr [id]="'desc'" [label]="'Description'" (onTextChanged)="onTextAreaTextChanged($event)"
+            [info]="'A sample info'"></f-textarea>
 
 <button class="btn btn-primary mb-2 mr-2" (click)="onClearTextsClicked()">Clear Texts</button>
 <button class="btn btn-primary mb-2 mr-2" (click)="onShowErrorClicked()">Show Error</button>

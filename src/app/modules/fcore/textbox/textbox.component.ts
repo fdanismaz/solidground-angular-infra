@@ -24,6 +24,7 @@ export class TextBoxComponent implements OnInit {
   type: TextBoxType;
 
   private _text: string;
+  private _info: string;
   private _hasError: boolean = false;
   private _hasWarning: boolean = false;
   private _errorMessage: string;
@@ -54,15 +55,34 @@ export class TextBoxComponent implements OnInit {
     return "_text";
   }
 
-  get errorCssClass(): string {
+  get cssClass(): string {
     if (this._hasError) {
       return 'has-danger';
+    } else if (this._hasWarning) {
+      return 'has-warning';
+    }
+    return '';
+  }
+
+  get inputCssClass(): string {
+    if (this._hasError) {
+      return 'form-control-danger';
+    } else if (this._hasWarning) {
+      return 'form-control-warning';
     }
     return '';
   }
 
   get text(): string {
     return this._text;
+  }
+
+  get info(): string {
+    return this._info;
+  }
+
+  get hasInfo() : boolean {
+    return this._info != null && this._info !== '';
   }
 
   get errorMessage(): string {
@@ -108,6 +128,11 @@ export class TextBoxComponent implements OnInit {
   @Input()
   set text(value: string) {
     this._text = value;
+  }
+
+  @Input()
+  set info(value: string) {
+    this._info = value;
   }
 
   clear() {
