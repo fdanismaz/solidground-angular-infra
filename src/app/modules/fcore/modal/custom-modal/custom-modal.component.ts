@@ -12,6 +12,8 @@ export class CustomModalComponent implements OnInit {
   private _size: string;
   private _modalReference: NgbModalRef;
 
+  data: any;
+
   @ViewChild('content')
   content: ElementRef;
 
@@ -37,6 +39,10 @@ export class CustomModalComponent implements OnInit {
 
   close() {
     this._modalReference.close();
+  }
+
+  clear() {
+    this.data = null;
   }
 
 }

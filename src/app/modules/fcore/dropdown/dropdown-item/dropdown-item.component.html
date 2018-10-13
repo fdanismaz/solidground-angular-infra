@@ -1,4 +1,4 @@
 <h6 class="dropdown-header" *ngIf="item.type === DropDownItemType.Header">{{item.label}}</h6>
-<a class="dropdown-item" *ngIf="item.type === DropDownItemType.Default" href="{{item.link}}">{{item.label}}</a>
+<button class="dropdown-item" *ngIf="item.type === DropDownItemType.Default">{{item.label}}</button>
 <div class="dropdown-divider" *ngIf="item.type === DropDownItemType.Separator"></div>
 

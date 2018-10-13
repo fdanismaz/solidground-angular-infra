@@ -13,12 +13,14 @@ export class DataGridComponent implements OnInit {
   id: string;
 
   private _metadata: GridMetaData = new GridMetaData();
-  private _data : GridRow[] = [];
+  private _data: GridRow[] = [];
+  private _selectedRow: GridRow;
 
   @Output()
-  onSelectedChanged = new EventEmitter<object>();
+  onSelectedChanged = new EventEmitter<GridRow>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -31,6 +33,10 @@ export class DataGridComponent implements OnInit {
     return this._data;
   }
 
+  get selectedRow(): GridRow {
+    return this._selectedRow;
+  }
+
   @Input()
   set metadata(value: GridMetaData) {
     this._metadata = value;
@@ -39,5 +45,14 @@ export class DataGridComponent implements OnInit {
   @Input()
   set data(value: GridRow[]) {
     this._data = value;
+  }
+
+  onRowSelected(row: GridRow) {
+    // Emit the selected row changed event if there is no row selected before,
+    // or the new selected row is different than the previous
+    if (this._selectedRow == null || this._selectedRow.id !== row.id) {
+      this._selectedRow = row;
+      this.onSelectedChanged.emit(row);
+    }
   }
 }

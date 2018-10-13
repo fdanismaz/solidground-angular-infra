@@ -4,8 +4,7 @@ export class DropDownItem {
 
   constructor(private _type: DropDownItemType,
               private _label: string,
-              private _link: string,
-              private _data?: object) {};
+              private _data?: any) {};
 
   get type(): DropDownItemType {
     return this._type;
@@ -15,11 +14,7 @@ export class DropDownItem {
     return this._label;
   }
 
-  get link(): string {
-    return this._link;
-  }
-
-  get data(): object {
+  get data(): any {
     return this._data;
   }
 }

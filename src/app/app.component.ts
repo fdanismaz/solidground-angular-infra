@@ -61,24 +61,24 @@ export class AppComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    this.tableData.push(new GridRow([
+    this.tableData.push(new GridRow('1', null,[
         new GridCell("name", "Furkan", ""),
         new GridCell("surname", "Danismaz", ""),
         new GridCell("birthdate", "07/12/1985", "text-danger")
       ]));
 
-    this.tableData.push(new GridRow([
+    this.tableData.push(new GridRow('2', null,[
       new GridCell("name", "Cansu", ""),
       new GridCell("surname", "Danismaz", ""),
       new GridCell("birthdate", "05/02/1989", "text-danger")
     ]));
 
-    this.dropdownItems.push(new DropDownItem(DropDownItemType.Header, 'Settings', ''));
-    this.dropdownItems.push(new DropDownItem(DropDownItemType.Default, 'Action', "#"));
-    this.dropdownItems.push(new DropDownItem(DropDownItemType.Default, 'Another action', "#"));
-    this.dropdownItems.push(new DropDownItem(DropDownItemType.Default, 'Something else', "#"));
-    this.dropdownItems.push(new DropDownItem(DropDownItemType.Separator, '', ''));
-    this.dropdownItems.push(new DropDownItem(DropDownItemType.Default, 'Separated link', '#'));
+    this.dropdownItems.push(new DropDownItem(DropDownItemType.Header, 'Settings'));
+    this.dropdownItems.push(new DropDownItem(DropDownItemType.Default, 'Action'));
+    this.dropdownItems.push(new DropDownItem(DropDownItemType.Default, 'Another action'));
+    this.dropdownItems.push(new DropDownItem(DropDownItemType.Default, 'Something else'));
+    this.dropdownItems.push(new DropDownItem(DropDownItemType.Separator, ''));
+    this.dropdownItems.push(new DropDownItem(DropDownItemType.Default, 'Separated link'));
 
     this.selectOptions.push(new SelectItem('Student', 'student', false));
     this.selectOptions.push(new SelectItem('Bachelor\'s Degree', 'bachelor', false));

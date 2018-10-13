@@ -1,6 +1,6 @@
 {
   "name": "f-infra",
-  "version": "0.2.7",
+  "version": "0.3.2",
   "author": "fdanismaz",
   "scripts": {
     "ng": "ng",

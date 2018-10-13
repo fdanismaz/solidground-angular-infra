@@ -6,7 +6,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data">
+      <tr *ngFor="let row of data" (click)="onRowSelected(row)">
         <td *ngFor="let cell of row.cells" class="{{cell.cssClass}}">{{cell.value}}</td>
       </tr>
     </tbody>
