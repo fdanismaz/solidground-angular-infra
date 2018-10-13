@@ -6,7 +6,7 @@ export class SelectItem {
     private _label: string,
     private _value: string,
     private _disabled: boolean,
-    private _data?: object) {}
+    private _data?: any) {}
 
   get selected(): boolean {
     return this._selected;
@@ -24,7 +24,7 @@ export class SelectItem {
     return this._disabled;
   }
 
-  get data(): object {
+  get data(): any {
     return this._data;
   }
 
