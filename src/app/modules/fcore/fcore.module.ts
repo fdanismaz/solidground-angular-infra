@@ -19,6 +19,8 @@ import { CrudButtonsComponent } from './crudbuttons/crudbuttons.component';
 import { ConfirmModalComponent } from './modal/confirm-modal/confirm-modal.component';
 import { InfoModalComponent } from './modal/info-modal/info-modal.component';
 import { CustomModalComponent } from './modal/custom-modal/custom-modal.component';
+import { ToastComponent } from './toast/toast.component';
+import { ToastItemComponent } from './toast/toast-item/toast-item.component';
 
 @NgModule({
   imports: [
@@ -43,7 +45,9 @@ import { CustomModalComponent } from './modal/custom-modal/custom-modal.componen
     CrudButtonsComponent,
     ConfirmModalComponent,
     InfoModalComponent,
-    CustomModalComponent
+    CustomModalComponent,
+    ToastComponent,
+    ToastItemComponent
   ],
   exports: [
     TextBoxComponent,
@@ -60,7 +64,8 @@ import { CustomModalComponent } from './modal/custom-modal/custom-modal.componen
     CheckBoxComponent,
     ConfirmModalComponent,
     InfoModalComponent,
-    CustomModalComponent
+    CustomModalComponent,
+    ToastComponent
   ]
 })
 export class FCoreModule { }

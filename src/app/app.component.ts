@@ -13,6 +13,7 @@ import {ConfirmModalComponent} from './modules/fcore/modal/confirm-modal/confirm
 import {CustomModalComponent} from './modules/fcore/modal/custom-modal/custom-modal.component';
 import {TextBoxComponent} from './modules/fcore/textbox/textbox.component';
 import {TextAreaComponent} from './modules/fcore/textarea/textarea.component';
+import {ToastComponent} from './modules/fcore/toast/toast.component';
 
 @Component({
   selector: 'app-root',
@@ -44,6 +45,9 @@ export class AppComponent implements OnInit, AfterContentInit {
 
   @ViewChild('txtDescr')
   textDescr: TextAreaComponent;
+
+  @ViewChild('toast')
+  toast: ToastComponent;
 
   onTextChanged(value: string) {
     console.log("new value is: " + value);
@@ -238,5 +242,17 @@ export class AppComponent implements OnInit, AfterContentInit {
 
   onHideToggleAreaClicked() {
     this.textDescr.hidden = !this.textDescr.hidden;
+  }
+
+  showDefaultToast() {
+    this.toast.notify('Deafult Title', 'Sample message');
+  }
+
+  showSuccessToast() {
+    this.toast.success('Success Title', 'Sample message very looooooong message. Let\'s see how the toast handle long messages...');
+  }
+
+  showErrorToast() {
+    this.toast.error('Error Title', 'Error message');
   }
 }

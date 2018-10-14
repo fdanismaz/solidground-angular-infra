@@ -35,5 +35,7 @@ export * from './src/app/modules/fcore/modal/info-modal/info-modal.component';
 export * from './src/app/modules/fcore/modal/confirm-modal/confirm-modal.component';
 export * from './src/app/modules/fcore/modal/custom-modal/custom-modal.component';
 
+export * from './src/app/modules/fcore/toast/toast.component';
+
 
 
