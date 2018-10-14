@@ -23,7 +23,7 @@ export class GridRow {
 
   get style(): string {
     if (this.selected) {
-      return "bg-info";
+      return "bg-info text-white";
     } else {
       return "";
     }
