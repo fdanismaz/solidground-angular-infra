@@ -1,12 +1,12 @@
 <div id="{{id}}" class="table-responsive">
-  <table class="table table-hover">
+  <table class="table table-hover {{sizeCssClass}}">
     <thead>
       <tr>
         <th *ngFor="let header of metadata.headers">{{header.text}}</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data" (click)="onRowSelected(row)">
+      <tr *ngFor="let row of data" (click)="onRowSelected(row)" class="{{row.style}}">
         <td *ngFor="let cell of row.cells" class="{{cell.cssClass}}">{{cell.value}}</td>
       </tr>
     </tbody>

@@ -255,4 +255,8 @@ export class AppComponent implements OnInit, AfterContentInit {
   showErrorToast() {
     this.toast.error('Error Title', 'Error message');
   }
+
+  onTableSelectedChanged(data: GridRow[]) {
+    console.log(data);
+  }
 }

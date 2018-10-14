@@ -32,7 +32,7 @@
 <button class="btn btn-primary mb-2 mr-2" (click)="onDisableAreaClicked()">Disable Toggle Area</button>
 <button class="btn btn-primary mb-2 mr-2" (click)="onHideToggleAreaClicked()">Hidden Area Toggle</button>
 
-<f-datagrid [metadata]="tableMetadata" [data]="tableData"></f-datagrid>
+<f-datagrid [metadata]="tableMetadata" [data]="tableData" [isSmall]="true" [multiSelect]="true" (onSelectedChanged)="onTableSelectedChanged($event)"></f-datagrid>
 
 <f-button [id]="'mybutton'" [label]="'click me!'" [cssClass]="'inverse-primary'" (onClick)="onMyButtonClicked()"></f-button>
 
